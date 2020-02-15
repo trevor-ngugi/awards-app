@@ -15,4 +15,8 @@ class ratings(models.Model):
     #project one to one
 
 class Projects(models.Model):
-    
+    title=models.CharField(max_length =30)
+    description=models.TextField()
+    #project_image
+    link=models.CharField(max_length =30)
+    #us fk name
