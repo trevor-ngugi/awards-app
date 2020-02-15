@@ -15,6 +15,7 @@ class Profile(models.Model):
         self.save()
 
 
+
 class Projects(models.Model):
     title=models.CharField(max_length =30)
     description=models.TextField()
@@ -25,6 +26,8 @@ class Projects(models.Model):
 
     def __str__(self):
         return self.title
+
+    
 
 class ratings(models.Model):
     project_name = models.OneToOneField(Projects,on_delete=models.CASCADE,primary_key=True,)

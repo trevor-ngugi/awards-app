@@ -14,3 +14,8 @@ class ProfileTestClass(TestCase):
         self.trevor.save_profile()
         profiles=Profile.objects.all()
         self.assertTrue(len(profiles)>0)
+
+    def test_delete_method(self):
+        self.trevor.save_profile()
+        my_obj = Profile.objects.get(name='trevor')
+        my_obj.delete()
