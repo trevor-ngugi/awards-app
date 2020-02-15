@@ -27,8 +27,15 @@ class Projects(models.Model):
     def __str__(self):
         return self.title
 
-    
+    class Meta:
+        ordering = ['pub_date']
 
+    @classmethod
+    def show_projects(cls):
+        projects= cls.objects.order_by('pub_date')
+        return projects
+
+        
 class ratings(models.Model):
     project_name = models.OneToOneField(Projects,on_delete=models.CASCADE,primary_key=True,)
     design=models.IntegerField(default=0)
