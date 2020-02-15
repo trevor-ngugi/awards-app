@@ -18,6 +18,7 @@ class Projects(models.Model):
     #project_image
     link=models.CharField(max_length =30)
     name=models.ForeignKey(Profile)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
