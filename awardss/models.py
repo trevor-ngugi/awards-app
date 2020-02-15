@@ -35,7 +35,11 @@ class Projects(models.Model):
         projects= cls.objects.order_by('pub_date')
         return projects
 
-        
+    @classmethod
+    def search_by_title(cls,search_term):
+        project = cls.objects.filter(title__icontains=search_term)
+        return project
+
 class ratings(models.Model):
     project_name = models.OneToOneField(Projects,on_delete=models.CASCADE,primary_key=True,)
     design=models.IntegerField(default=0)

@@ -1,0 +1,14 @@
+{%extends 'projects/base.html'%}
+
+{% block content %}
+
+    {% if projects %}
+        {% for project in projects %}
+            <h1>{{project.title}}</h1>
+            <h1>{{project.description}}</h1>
+        <h1>{{project.link}}</h1>
+        <h1>{{project.name}}</h1>
+        <h1>{{project.pub_date}}</h1>
+        {%endfor%}
+    {%endif%}
+{% endblock %}
