@@ -11,11 +11,6 @@ class Profile(models.Model):
     def __str__(self):
         return self.name
 
-class ratings(models.Model):
-    design=models.IntegerField(default=0)
-    usability=models.IntegerField(default=0)
-    content=models.IntegerField(default=0)
-    #project one to one
 
 class Projects(models.Model):
     title=models.CharField(max_length =30)
@@ -26,3 +21,10 @@ class Projects(models.Model):
 
     def __str__(self):
         return self.title
+
+class ratings(models.Model):
+    project_name = models.OneToOneField(Projects,on_delete=models.CASCADE,primary_key=True,)
+    design=models.IntegerField(default=0)
+    usability=models.IntegerField(default=0)
+    content=models.IntegerField(default=0)
+    #project one to one
