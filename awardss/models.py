@@ -6,6 +6,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length =30)
     no_of_projects = models.IntegerField(default=0)
     #profileImage
+    profile_image = models.ImageField(upload_to = 'profile/')
     contact=models.CharField(max_length =30)
 
     def __str__(self):
@@ -20,6 +21,7 @@ class Projects(models.Model):
     title=models.CharField(max_length =30)
     description=models.TextField()
     #project_image
+    project_image = models.ImageField(upload_to = 'project/')
     link=models.CharField(max_length =30)
     name=models.ForeignKey(Profile)
     pub_date = models.DateTimeField(auto_now_add=True)
