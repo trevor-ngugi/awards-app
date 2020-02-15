@@ -9,6 +9,10 @@ class User(models.Model):
     contact=models.CharField(max_length =30)
 
 class ratings(models.Model):
-    design
-    usability
-    content
+    design=models.IntegerField(default=0)
+    usability=models.IntegerField(default=0)
+    content=models.IntegerField(default=0)
+    #project one to one
+
+class Projects(models.Model):
+    
