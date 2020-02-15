@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>awards - {{title}}</title>
+  {% else %}
+    <title> awards</title>
+  {% endif %}
+
+</head>
+<body>
+    {% block content %} <h1>base part</h1> {%endblock%}
+</body>
+</html>
