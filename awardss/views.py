@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http  import HttpResponse,Http404,HttpResponseRedirect
 from .models import Projects
 
 # Create your views here.
@@ -18,3 +19,10 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'projects/search.html',{"message":message})
+
+def project(request,project_id):
+    try:
+        project = Projects.objects.get(id = project_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"projects/project.html", {"project":project})
