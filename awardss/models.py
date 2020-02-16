@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
 # Create your models here.
 class Profile(models.Model):
@@ -19,7 +20,7 @@ class Profile(models.Model):
 
 class Projects(models.Model):
     title=models.CharField(max_length =30)
-    description=models.TextField()
+    description=HTMLField()   #models.TextField()
     #project_image
     project_image = models.ImageField(upload_to = 'project/')
     link=models.CharField(max_length =30)
