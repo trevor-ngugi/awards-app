@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
 from .models import Projects
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def welcome(request):
@@ -20,6 +21,8 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'projects/search.html',{"message":message})
 
+
+@login_required(login_url='/accounts/login/')
 def project(request,project_id):
     try:
         project = Projects.objects.get(id = project_id)
