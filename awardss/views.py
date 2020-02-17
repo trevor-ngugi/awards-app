@@ -1,8 +1,12 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
-from .models import Projects,Profile
+from .models import Projects,Profile,ratings
 from django.contrib.auth.decorators import login_required
 from .forms import NewProjectForm
+
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProjectSerializer
 
 # Create your views here.
 def welcome(request):
@@ -52,3 +56,9 @@ def profile(request):
     current_user = request.user
     profile=Profile.objects.filter(user=current_user).all()
     return render(request,"registration/profile.html",{'profile':profile})
+
+class ProjectList(APIView):
+    def get(self, request, format=None):
+        projects= Projects.objects.all()
+        serializers = ProjectSerializer(projects, many=True)
+        return Response(serializers.data)
