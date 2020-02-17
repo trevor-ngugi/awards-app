@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
-from .models import Projects
+from .models import Projects,Profile
 from django.contrib.auth.decorators import login_required
 from .forms import NewProjectForm
 
@@ -45,3 +45,10 @@ def new_project(request):
     else:
         form = NewProjectForm()
     return render(request, 'new_project.html', {"form": form})
+
+#diplsaying you single profile
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    current_user = request.user
+    profile=Profile.objects.filter(user=current_user).all()
+    return render(request,"registration/profile.html",{'profile':profile})
