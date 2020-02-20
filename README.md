@@ -49,6 +49,7 @@ Here is a run through of how to set up the application:
 * cannot edit profile,only by superadmin can edit profile, fix coming soon
 * cannot show the users posted posts on profile page,working on it
 * user can not rate the project,will add button for rating
+* problem with login feature on live link ,working on it
 
 ## Support and contact details
 You can provide feedback or raise any issues/ bugs through the following means:
