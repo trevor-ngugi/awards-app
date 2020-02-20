@@ -56,6 +56,7 @@ You can provide feedback or raise any issues/ bugs through the following means:
 
 ## Live Site link
 You can view the live application by following this [link](https://.herokuapp.com/).
+you can view the api endpoint by[link](http://127.0.0.1:8000/api/projects/)
 
 ## License
 MIT License
