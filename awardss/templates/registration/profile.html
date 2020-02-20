@@ -1,7 +1,8 @@
-{%extends "registration/base.html"%} {% load bootstrap3 %}
+{%extends "registration/base.html"%} {% load bootstrap3 %} {% load static%}
 
 {% block content %}
 <head>
+        
     
 </head>
 <body>
@@ -11,6 +12,13 @@
             <div class="col-md-6">
                 <img src="{{profiles.profile_image.url}}" class="img-responsive" alt="Image">
             </div>
+
+            <!-- <div class="polaroid">
+                    <img src="{{profiles.profile_image.url}}" alt="image" style="width:100%">
+                    <div class="container">
+                    <p>profile image</p>
+                    </div>
+                  </div> -->
             <div class="col-md-6">
                 <h1>username : {{profiles.user}}</h1>
                 <h1>bio : {{profiles.bio}}</h1>
