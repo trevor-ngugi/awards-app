@@ -26,7 +26,7 @@ class Projects(models.Model):
     description=HTMLField()   #models.TextField()
     #project_image
     project_image = models.ImageField(upload_to = 'project/')
-    link=models.CharField(max_length =30)
+    link=models.TextField()
     name=models.ForeignKey(User,on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
 
@@ -38,7 +38,7 @@ class Projects(models.Model):
 
     @classmethod
     def show_projects(cls):
-        projects= cls.objects.order_by('pub_date')
+        projects= cls.objects.order_by('-pub_date')
         return projects
 
     @classmethod
